@@ -1,0 +1,71 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.results{
+  display: inline;
+  padding-top: 20px;
+} 
+
+.results ul{
+  display: flex;
+  flex-direction: row;
+}
+
+img {
+  display: inline-flex;
+  /* float: left; */
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.slider img {
+  display: inline-flex;
+  /* float: left; */
+  width:  300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.modalBackground {
+  opacity:0;
+  pointer-events:none;
+  transition: opacity 0.4s ease-in-out;
+  position: flex;
+  width:60%;
+  height:60%;
+}
+
+.modalShowing-true {
+  opacity: 1;
+  pointer-events:showing;
+}
+
+
+.modalInner{
+  width:700px;
+  height: 700px;
+ 
+  display: flex;
+}
