@@ -69,3 +69,10 @@ img {
  
   display: flex;
 }
+
+
+.modal img{
+  width:  250px;
+  height: 250px;
+
+}

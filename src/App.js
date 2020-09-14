@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import ImageSlider from './components/ImageSlider';
 
@@ -6,8 +6,9 @@ function App() {
   const [images, setImages] = useState("");
   const [result, setResult] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [modalState, setModalState] = useState(false);
   const [currentImage, setCurrentImage] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const outside = useRef()
 
   const handleChange = (event) => {
     setImages(event.target.value);
@@ -29,19 +30,27 @@ function App() {
     }, 500)
   })
 
-  const manageState = () => {
-    //setCurrentImage()
-    setModalState(!modalState)
+  const handleClick = e => {
+    if (outside.current.contains(e.target)) {
+      return
+    }
+    setIsOpen(false)
   }
 
+  useEffect(() => {
+    const getClick = document.addEventListener('click', handleClick)
+    return () => {
+      getClick()
+    }
+  }, [])
+
   return (
-    <div className="App">
+    <div className="App" ref={outside}>
 
       <header className="App-header">
         <h1>Photo Search</h1>
         <input onChange={handleChange} type="text" name="photo" placeholder="Search for Photos..." />
         <button onClick={handleSubmit} type="submit">Search</button>
-        {/* <div className="slider"><ImageSlider images={hRefImages} /></div> */}
       </header>
 
       {loading ? (
@@ -53,16 +62,15 @@ function App() {
             </div>
             <ul style={{ listStyleType: "none" }}>
               {/* <a    href={images.urls.small}> </a> */}
-              {result.map((images) => (<li ><img onClick={() => manageState()} key={images.id} src={images.urls.thumb} alt={images.alt_description} /></li>))}
+              {result.map((images) => (<li ><img onClick={() => setIsOpen(!isOpen)} key={images.id} src={images.urls.thumb} alt={images.alt_description} /></li>))}
             </ul>
 
-
-            <div className={`modalBackground modalShowing-${modalState}`}>Carousel
-              <div className="modalInner">
-                {/* <ImageSlider images={hRefImages}/>     currentImage={currentImage}  */}
+            {isOpen ? (
+              <div className="modal">
+                <p>modal Carusel</p>
+                <ImageSlider images={hRefImages} />
               </div>
-            </div>
-
+            ) : null}
           </div>
         )}
     </div>
