@@ -1,0 +1,68 @@
+.image-slider{
+  margin: auto;
+  padding: 10px;
+  
+}
+
+.img-main {
+  border-radius: 6px;
+
+  height: 510px;
+}
+
+.flex-row {
+  max-width: 360px;
+  margin: auto;
+  display: inline;
+  justify-content: space-between;
+   
+}
+
+.flex-item {
+  border-radius: 6px;
+  width: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.25s linear;
+  height: 80px;
+}
+
+.flex-item:hover {
+  opacity: 1;
+}
+
+.flex-item.active {
+  opacity: 1;
+  border: 3px solid goldenrod;
+}
+
+.arrow-left, .arrow-right {
+  position: absolute;
+  z-index: 11;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 60px;
+ border-radius: 20px;
+ height: 100px;
+}
+
+.arrow-left {
+  top: 650px;
+  left: 20%;
+}
+.arrow-right {
+  top: 650px;
+  right: 20%;
+}
+
+.arrow-right:hover, .arrow-left:hover{
+  color: rgba(255,255,255,1);
+}
+
+ 
+
+ 
