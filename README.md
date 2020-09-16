@@ -1,4 +1,4 @@
-![demo](https://drive.google.com/file/d/1fgjzixDFZ2JM6dV67-JSyCjO8oBl4Rl_/view?usp=sharing)
+![demo](/democarousel.gif)
 
 
 
