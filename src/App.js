@@ -24,7 +24,7 @@ function App() {
       setResult(response.results);
       setTimeout(() => {
         setLoading(false);
-      }, 500)
+      }, 800)
     }
     ))
       .catch((e) => {
@@ -64,7 +64,10 @@ function App() {
       </header>
 
       {loading ? (
-        <div> <h1>Loading...</h1> </div>
+        // <div> <h1>Loading...</h1> </div>
+        <div class="loadingio-spinner-spinner-3k7656kmf8f"><div class="ldio-nemp09m36fr">
+          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        </div></div>
       ) : (
           <div className="results">
             <div className="slider">
